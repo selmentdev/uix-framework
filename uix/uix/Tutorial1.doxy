@@ -1,0 +1,282 @@
+/** \page Tutorial1 Tutorial 1 - Tworzenie aplikacji - Notatnik
+
+Ten prosty przykład pokazuje, w jaki sposób można stworzyć najprostszą aplikację przy użyciu biblioteki UIX.
+W przykładzie tym pokazane jest, jak tworzona jest prosta aplikacja - notatnik.
+
+\section AppObject Obiekt Aplikacji
+
+Biblioteka UIX wykorzystuje obiekt aplikacji do inicjalizacji interfejsu graficznego aplikacji.
+Programista musi stworzyć własną klasę aplikacji, poprzez rozszerzenie istniejącej już uixApplication.
+
+Przykład:
+\code
+#include <uixapplication.h>
+#include <uixinit.h>
+#include <uixdialog.h>
+
+#include "Forms/MainForm.h"
+
+namespace Notepad {
+
+	class Application : public UIX::uixApplication {
+	public:
+		virtual BOOL InitInstance() override {
+			if (!UIX::uixApplication::InitInstance())
+				return FALSE;
+
+			// Tworzymy formatkę główną
+			m_MainWindow = &m_MainForm;
+			m_MainForm.Create(_("++Notepad"), uixPoint(CW_USEDEFAULT, CW_USEDEFAULT), uixSize(CW_USEDEFAULT, CW_USEDEFAULT));
+			m_MainForm.Update();
+			m_MainForm.Show();
+
+			return TRUE;
+		}
+	private:
+		MainForm	m_MainForm;
+	};
+}
+\endcode
+
+Pole m_MainForm typu MainForm reprezentuje główną formatkę aplikacji, która jest tworzona w nadpisanej
+metodzie Application::InitInstance.
+
+Możliwe jest także użycie modalnego okna dialogowego zamiast formatki. Modalne okno dialogowe implementuje
+własną kolejkę komunikatów, dlatego metoda InitInstance obiektu aplikacji musi zwrócić wartość FALSE, aby
+nie uruchamiać głównej kolejki komunikatów.
+
+Rozszerzoną w ten sposób klasę aplikacji można utworzyć i zainicjalizować poprzez makro uixIMPLEMENT_APPLICATION:
+\code
+uixIMPLEMENT_APPLICATION(Notepad::Application);
+\endcode
+
+\section MainForm Okno główne
+
+Formatka główna aplikacji jest obiektem, który reprezentuje aplikację w graficznym środowisku użytkownika. W tej części przykładu
+utworzymy główne okno aplikacji (wspomniane już w poprzedniej sekcji).
+
+Okno zawierało będzie trzy potrzebne elementy:
+- menu główne
+- pole tekstowe
+- pasek stanu
+
+Aby móc obsłużyć komendy wydawane przez użytkownika, trzeba zadeklarować mapę zdarzeń i zdefniować metody ich obsługi.
+
+Poniższy kod przedstawia pełną deklarację klasy okna głównego notatnika
+\code
+#pragma once
+
+#include <uixframe.h>
+#include <uixmenu.h>
+#include <uixstatusbarctrl.h>
+#include <uixscintillaeditor.h>
+
+namespace Notepad {
+	using namespace UIX;
+
+	class MainForm : public uixFrame {
+		uixDECLARE_EVENT_MAP();
+	public:
+		// Wywoływana gdy okno jest tworzone
+		void OnCreate(uixCreateEventArgs& e);
+		// Wywoływana gdy okno zmienia swój rozmiar
+		void OnSize(uixSizeEventArgs& e);
+
+		// Komendy z menu File
+		void OnFileNewCommand(uixCommandEventArgs& e);
+		void OnFileOpenCommand(uixCommandEventArgs& e);
+		void OnFileSaveCommand(uixCommandEventArgs& e);
+		void OnFileSaveAsCommand(uixCommandEventArgs& e);
+		void OnFileExitCommand(uixCommandEventArgs& e);
+
+		// Komendy z menu Edit
+		void OnEditCutCommand(uixCommandEventArgs& e);
+		void OnEditCopyCommand(uixCommandEventArgs& e);
+		void OnEditPasteCommand(uixCommandEventArgs& e);
+
+		// Komendy z menu Help
+		void OnHelpAboutCommand(uixCommandEventArgs& e);
+	private:
+		uixMenu				m_MainMenu;		// Menu główne
+		uixScintillaEditor	m_Editor;		// Kontrolka edycji tekstu
+		uixStatusBarCtrl	m_StatusBar;	// Pasek stanu
+	};
+}
+\endcode
+
+Kolejnym krokiem jest stworzenie pliku z zasobami aplikacji. Dla tej przykładowej aplikacji stworzone zostały dwa
+istotne zasoby:
+- struktura menu głównego - zawierająca identyfikatory liczbowe komend
+- tablica akceleratorów - kojarząca skróty klawiszowe z odpowiednimi komendami
+
+\section MainFormImpl Implementacja okna głównego
+
+Implementacja okna głównego znajduje się w pliku MainForm.cpp
+
+\subsection Impl_EventMap Mapa komunikatów
+
+Poniższy kod prezentuje mapowanie identyfikatorów komend i zdarzeń na konkretne metody klasy MainForm
+
+\code
+uixBEGIN_EVENT_MAP(MainForm, uixFrame)
+	uixEVT_CREATE()
+	uixEVT_SIZE()
+
+	// File
+	uixEVT_COMMAND(IDM_FILE_NEW, OnFileNewCommand)
+	uixEVT_COMMAND(IDM_FILE_OPEN, OnFileOpenCommand)
+	uixEVT_COMMAND(IDM_FILE_SAVE, OnFileSaveCommand)
+	uixEVT_COMMAND(IDM_FILE_SAVEAS, OnFileSaveAsCommand)
+	uixEVT_COMMAND(IDM_FILE_EXIT, OnFileExitCommand)
+
+	// Edit
+	uixEVT_COMMAND(IDM_EDIT_CUT, OnEditCutCommand)
+	uixEVT_COMMAND(IDM_EDIT_COPY, OnEditCopyCommand)
+	uixEVT_COMMAND(IDM_EDIT_PASTE, OnEditPasteCommand)
+
+	// Help
+	uixEVT_COMMAND(IDM_HELP_ABOUT, OnHelpAboutCommand)
+
+uixEND_EVENT_MAP()
+\endcode
+
+\subsection Impl_OnCreate Metoda OnCreate
+Metoda ta jest wywoływana jednokrotnie, gdy obiekt formatki głównej aplikacji jest tworzony. Jest to idealne
+miejsce na utworzenie kontrolek potomnych formatki.
+
+\code
+void MainForm::OnCreate(uixCreateEventArgs& e) {
+	// Wywołanie metody nadrzędnej
+	uixFrame::OnCreate(e);
+	
+	// W razie niepowodzenia
+	if (e.Result == -1)
+		return;
+
+	// Ładuje tablice akceleratorów
+	LoadAccelTable(IDR_ACCEL_MAIN);
+
+	// Tworzy kontrolkę paska stanu
+	m_StatusBar.Create(this);
+	// Oraz pola edycyjnego
+	m_Editor.Create(this, uixPoint(0, 0), uixSize(200, 200));
+	// Ładuje i ustawia menu główne
+	m_MainMenu.Load(IDR_MAINMENU);
+	this->SetMenu(m_MainMenu);
+}
+\endcode
+
+\subsection Impl_OnSize Metoda OnSize
+Metoda ta jest wywoływana za każdym razem, gdy użytkownik aplikacji zmieni rozmiar okna głównego.
+W tym miejscu kontrolki potomne okna głownego dostosowują swój rozmiar do nowego rozmiaru części klienckiej
+okna głównego.
+
+\code
+void MainForm::OnSize(uixSizeEventArgs& e) {
+	uixFrame::OnSize(e);
+
+	// Aktualizacja rozmiaru paska stanu
+	m_StatusBar.RecalcLayout();
+
+	// Pobranie rozmiaru części klienckiej
+	uixRect rc;
+	GetClientRect(rc);
+
+	// Pobranie wymiarów paska stanu
+	uixRect sb;
+	m_StatusBar.GetWindowRect(sb);
+	
+	// Dostosowanie i ustawienie rozmiaru pola edycyjnego
+	rc.bottom -= sb.Height();
+
+	m_Editor.SetWindowRect(rc);
+}
+\endcode
+
+\subsection Impl_OnClose Metoda OnClose
+Zadaniem tej metody jest obsługa zamknięcia programu. W przypadku, gdy otwarty dokument został zmodyfikowany, a nie został zapisany
+powinna ona wyświetlić komunikat z pytaniem o zapisanie dokumentu.
+\code
+void MainForm::OnClose(uixCloseEventArgs& e)
+{
+	if (!m_Saved || m_Editor.IsModified())
+	{
+		switch(::MessageBox(GetHandleSafe(), 
+			_("Do you want to save?"),
+			_("Question"),
+			MB_YESNOCANCEL | MB_ICONQUESTION))
+		{
+		case uixID_YES:
+			{
+				// Próbujemy zapisać dokument
+				SendMessage(WM_COMMAND, IDM_FILE_SAVE, 0);
+				// I wyłączamy aplikację
+				uixFrame::OnClose(e);
+				break;
+			}
+		case uixID_NO:
+			{
+				// Wyłączamy aplikację
+				uixFrame::OnClose(e);
+				break;
+			}
+		default:
+			{
+				// Brak reakcji
+				break;
+			}
+		}
+	}
+}
+\endcode
+
+\subsection Impl_OnFileNewCommand Metoda OnFileNewCommand
+Metoda ta implementuje tworzenie nowego dokumentu. Przed utworzeniem nowego dokumentu, próbuje zapisać modyfikacje w aktualnie otwartym dokumencie.
+\code
+void MainForm::OnFileNewCommand(uixCommandEventArgs& e)
+{
+	if (m_Editor.IsModified())
+	{
+		switch(::MessageBox(GetHandleSafe(), 
+			_("Do you want to save?"),
+			_("Question"),
+			MB_YESNO | MB_ICONQUESTION))
+		{
+		case uixID_YES:
+			{
+				SendMessage(WM_COMMAND, IDM_FILE_SAVE, 0);
+				break;
+			}
+		case uixID_NO:
+			{
+				m_Editor.SetLines("");
+				m_Editor.SetSavePoint();
+				break;
+			}
+		}
+	}
+}
+\endcode
+
+\subsection Impl_OnHelpAboutCommand Metoda OnHelpAboutCommand
+Metoda ta odpowiedzialna jest za pokazanie uzytkownikowi okna dialogowego z informacjami o programie.
+\code
+void MainForm::OnHelpAboutCommand(uixCommandEventArgs& e)
+{
+	// Okno About Dialog
+	uixAboutDlg dlg;
+	dlg.Create(this);
+	// Ustawiamy nazwę aplikacji
+	dlg.SetAppName(_("++Notepad"));
+	// Ewentualne informacje o licencji
+	dlg.SetLicense(_("UIX Library and ++Notepad application is available under LGPL v3.0 license"));
+	// Dodatkowa zawartość
+	dlg.SetContent(_("This software is created by using UIX Library."));
+	// Obraz w postaci pionowej belki
+	dlg.SetVerticalBarImage(UixLoadImage(IDB_APPBAR));
+	// Wyświetlamy modalnie
+	dlg.DoModal();
+}
+\endcode
+
+*/

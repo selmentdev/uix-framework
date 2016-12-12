@@ -1,0 +1,20 @@
+/**
+\mainpage User Interface Framework Library
+
+<em>User Interface Framework Library 1.0 beta, Grudzień 2011</em>
+
+UIX (User Interface Framework) jest biblioteką dla języka C++, służącą do tworzenia
+prostych aplikacji z graficznym interfejsem użytkownika
+
+\section Cechy i założenia
+- Jest to biblioteka do tworzenia graficznego interfejsu użytkownika dla systemów Windows
+- Napisana w języku C++
+- W jak najmniejszym stopniu korzysta z rozszerzeń kompilatorów języka C++
+- Tworzy obiektową warstwę abstrakcji na strukturalne API systemu Windows
+- Jest przezroczysta dla kodu aplikacji
+- Pozwala na łatwą integrację z innymi bibliotekami
+- Posiada niski narzut pamięciowy - poprzez ograniczenie alokacji na stercie
+- Implementuje mechanizmy przyspieszające i ułatwiające tworzenie aplikacji
+- Nastawiona jest na maksymlaną wydajność - dzięki zastosowaniu metod inline, które rozwijane są w miejscu wywołania bezpośrednio na funkcje Windows API
+- Pliki źródłowe zapisane są w kodowaniu UTF-8
+*/

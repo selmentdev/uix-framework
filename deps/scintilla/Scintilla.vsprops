@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Scintilla"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(SolutionDir)..\deps\scintilla\include&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="SciLexer.lib Scintilla.lib"
+		AdditionalLibraryDirectories="&quot;$(SolutionDir)..\deps\scintilla\bin&quot;"
+	/>
+	<Tool
+		Name="VCPostBuildEventTool"
+		Description="copy &quot;$(SolutionDir)..\deps\scintilla\bin\*.dll&quot; &quot;$(OutDir)&quot;"
+		CommandLine="copy &quot;$(SolutionDir)..\deps\scintilla\bin\*.dll&quot; &quot;$(OutDir)&quot;"
+	/>
+</VisualStudioPropertySheet>

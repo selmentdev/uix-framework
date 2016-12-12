@@ -1,0 +1,169 @@
+/**
+\page Controls Kontrolki GUI
+- uixMenu - obsługa menu aplikacji - zarówno głównego jak i kontekstowego
+- uixImageListCtrl - kontrolka grupująca wiele bitmap jako jedną
+- uixWindow - bazowa klasa okna
+- uixAnimateCtrl - kontrolka wyświetlająca animację
+- uixButton - przycisk
+	- uixCheckButton - przycisk z możliwością wielokrotnego wyboru
+	- uixCommandLink - przycisk łącza
+	- uixGroupPane - kontrolka grupująca
+	- uixRadioButton - przycisk jednokrotnego wyboru
+- uixComboBox - lista rozwijana
+- uixDateTimeCtrl - kontrolka edycji czasu
+- uixDialog - klasa bazowa okien dialogowych
+	- uixAboutDlg - okno dialogowe "O programie"
+	- uixExceptionDlg - okno dialogowe wyświetlające informacje o wyjątku
+	- uixTabPage - zakładka dla uixTabCtrl
+	- uixFileDialog - okno wyboru pliku
+- uixFrame - ramka aplikacji
+- uixHeaderCtrl - kontrolka nagłówka
+- uixHotKeyCtrl - kontrolka edycji skrótu klawiszowego
+- uixIPAddressCtrl - kontrolka edycji adresu IP
+- uixLabel - etykieta tekstowa
+- uixLinkCtrl - etykieta tekstowa z obsługą łączy
+- uixListBoxCtrl - prosta lista elementów
+- uixListViewCtrl - lista elementów
+- uixMonthCalendarCtrl - kalendarz
+- uixPageScrollerCtrl - kontrolka przewijania zawartości
+- uixProgressBarCtrl - pasek postępu
+- uixRebarCtrl - "rusztowanie" dla innych kontrolek
+- uixScrollBarCtrl - pasek przewijania
+- uixTabCtrl - kontrolka zakładek
+- uixTextCtrl - kontrolka edycji tekstu
+- uixToolBarCtrl - pasek narzędzi
+- uixToolTipCtrl - kontrolka podpowiedzi
+- uixTrackBarCtrl - kontrolka suwaka
+- uixTreeViewCtrl - widok drzewa
+- uixUpDownCtrl - kontrolka typu up/down
+
+\page Mechanics_RTTI RTTI
+RTTI jest mechanizmem pozwalającym na zdobywanie informacji o typie obiektu w czasie działania aplikacji.
+Implementacja ta dubluje mechanizm zaimplementowany w bibliotece języka C++ - ze względu na istotne ograniczenia.
+
+\section Sec_Using Sposób użycia
+Klasy obiektów, które mają obsługiwać RTTI muszą dziedziczyć posrednio bądź bezpośrednio po klasie uixObject.
+Udostępnia ona zestaw metod pozwalających na przechodzenie po drzewie hierarchii klas dziedziczących po niej.
+Bezpośrednio z typem uixObject skojarzona jest klasa uixMetaClass.
+Udostępnia ona zestaw metod powzalających na pobieranie takich informacji o typie jak jego nazwa czy też rozmiar tworzonego obiektu.
+Powzala także na stworzenie nowej instancji obiektu określonego typu - traktując typ jako obiekt.
+
+\par Klasy dynamiczne i abstrakcyjne
+Podział na klasy dynamiczne i abstrakcyjne odwzorowuje ten sam podział klas w języku C++.
+
+- uixDECLARE_DYNAMIC_CLASS(Class) - deklaracja klasy dynamicznej
+- uixDECLARE_ABSTRACT_CLASS(Class) - deklaracja klasy abstrakcyjnej
+- uixIMPLEMENT_DYNAMIC_CLASS(Class, BaseClass) - implementacja klasy dynamicznej
+- uixIMPLEMENT_ABSTRACT_CLASS(Class, BaseClass) - implementacja klasy abstrakcyjnej
+
+
+\par Rozszerzanie klasy uixObject
+\code
+class MyClass : public uixObject
+{
+	uixDECLARE_DYNAMIC_CLASS();
+public:
+	// ...
+};
+
+uixIMPLEMENT_DYNAMIC_CLASS(MyClass, uixObject);
+\endcode
+
+\par Rzutowanie dynamiczne
+Poza możliwością operowania na typach jako obiektach, mechanizm RTTI dostarcza własne operatory rzutowania:
+- uixDYNAMIC_CAST(Class, Object)
+- uixDYNAMIC_CAST_THIS(Class)
+
+\code
+// Nowa instancja klasy
+uixObject* object = new MyClass();
+
+// Rzutowanie z typu bazowego na dziedziczący (dynamiczne)
+MyClass* myObject = uixDYNAMIC_CAST(MyClass, object);
+\endcode
+
+\page Mechanics_Resman Zarządzanie zasobami
+Standardowy mechanizm zarządzania zasobami systemu Windows wymusza przekazywanie wraz z identyfikatorem ładowanego
+zasobu uchwytu do instancji modułu w którym się znajduje. Mechanizm zaimplementowany w bibliotece automatycznie określa
+z którego modułu należy załadować zasób, stosując prosty zestaw reguł:
+- brane są pod uwage moduły korzystające z biblioteki UIX
+- kolejność sprawdzania modułów
+	- moduł aplikacji
+	- moduły rozszerzeń
+	- moduły rdzenia
+	
+\page Mechanics_Modules Modularność
+Podział biblioteki na moduły pozwala na współdzielenie ich pomiędzy wieloma aplikacjami korzystającymi z biblioteki.
+Mechanizm ten zaimplementowany został przy użyciu klas:
+- uixProcessState
+- uixThreadState
+- uixModuleState
+- uixProcessStateLock
+- uixApplication
+
+\page Mechanics_Threading Threading
+Obsługa wielowątkowości została zapewniona przez implementację klas takich jak:
+- uixUiThread
+- uixThread
+- uixScopeLock
+- uixThreadSyncObject
+- uixMutex
+- uixCriticalSection
+- uixSemaphore
+
+\page Mechanics_EventHandling Obsługa zdarzeń
+Do obsługi zdarzeń wykorzystywane są tzw. mapy zdarzeń, kojarzące ze sobą odpowiednie komunikaty systemu Windows z metodami ich obsługi. Sama obsługa zdarzeń jest
+hierarchiczna, co oznacza że metoda obsługi zdarzenia nie musi (ale może) wywołać metodę klasy nadrzędnej, blokując tym samym standardową obsługę zdarzenia.
+
+\par Argumenty zdarzeń
+Aby ujednolicić mechanizm obsługi zdarzeń, wprowadzona została hierarchia strukur deklarujących argumenty obsługiwanych zdarzeń. Każda klassa dziedzicząca po 
+uixEventArgs sama rozkodowuje znaczenie parametrów WPARAM i LPARAM.
+
+\par Deklaracja i definicja przykładowej mapy zdarzeń
+
+\code
+class CMyForm : public uixFrame {
+	// Deklaracja mapy zdarzeń
+	uixDECLARE_EVENT_MAP();
+public:
+	// metody obsługi zdarzeń
+	void OnCreate(uixCreateEventArgs& e) {
+		// ...
+	}
+	
+	void OnSize(uixSizeEventArgs& e) {
+		// ...
+	}
+};
+
+// Definicja mapy zdarzeń
+uixBEGIN_EVENT_MAP(CMyForm, uixFrame)
+	uixEVT_CREATE()
+	uixEVT_SIZE()
+uixEND_EVENT_MAP()
+\endcode
+
+\par Refleksja i notifykacja zdarzeń
+Niektóre komunikaty w systemie Windows przesyłane są od okna dziecka do rodzica - ułatwiało to pracę nad aplikacjami tworzonymi w języku C.
+Mechanizm ten nie sprawdza się w programowaniu obiektowym: łamie hermetyzację - powodująć wyciek szczegółów implementacji poza klasę kontrolki.
+
+Mechanizm refleksji komunikatów odbija komunikaty z powrotem do okna dziecka i oznacza je jako "odbite" (ang. reflected).
+
+\page Mechanics_AppStruct Struktura aplikacji
+Aplikacja korzystająca z biblioteki UIX musi implementować klasę uixApplication. Metoda uixApplication::InitInstance
+wywoływana jest automatycznie przy inicjalizacji aplikacji - stanowiąc dobry moment na utworzenie okna głównego aplikacji
+
+\par Okno główne aplikacji
+Oknem głównym aplikacji może być klasa dziedzicząca zarówno po uixDialog jak i uixFrame. Użycie okna dialogowego pozwala
+na załadowanie układu interfejsu bezpośrednio z zasobów aplikacji. Wymaga także odmiennego zachowania metody uixApplication::InitInstance, która powinna
+zwracać FALSE nie przechodząc tym samym do głównej pętli zdarzeń
+
+\page Mechanics_ErrorHandling Obsługa błędów
+Obsługę błędów zapewniają takie mechanizmy jak asercje i zapewnienia, a także obsługa wyjątków. Pomocne w debugowaniu może być implementacja zrzutów stanu obiektów
+oraz śledzenia wykonania aplikacji
+- uixASSERT
+- uixENSURE
+- uixDUMP
+- uixTRACE
+- uixException
+*/

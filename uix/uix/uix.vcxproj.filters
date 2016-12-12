@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{af0c2c86-ff42-4e86-84d3-a03fc507b226}</UniqueIdentifier>
+      <Extensions>inl</Extensions>
+    </Filter>
+    <Filter Include="Documentation Files">
+      <UniqueIdentifier>{5a83e8c6-ac58-4faa-b571-2478837de432}</UniqueIdentifier>
+      <Extensions>doxy</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixaboutdlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixanimatectrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixapplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixbuttonctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixcolordialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixcombobox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixdatetimectrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixdiagnostic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixdump.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixexception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixexceptiondlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixfiledialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixfilestream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixframe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixgdidc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixheaderctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixhotkeyctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uiximagelistctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixinit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixipaddressctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixlabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixlinkctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixlistboxctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixlistviewctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixmonthcalendar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixobject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixpagescrollerctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixprogressbarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixrebarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixresource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixscrollbarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixstate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixstatusbarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixstream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtabctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtextctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixthreading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtoolbarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtooltipctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtrace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtrackbarctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixtreeviewctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixuithread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixupdownctrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uixwindowclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixaboutdlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixanimatectrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixapplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixbuttonctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixcolordialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixcombobox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixdatetimectrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixdiagnostic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixdump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixexception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixexceptiondlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixfiledialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixfilestream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixframe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixgdibitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixgdibrush.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixgdidc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixgdifont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixgdipen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixheaderctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixhotkeyctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uiximagelistctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixinit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixipaddressctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixlabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixlinkctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixlistboxctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixlistviewctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixmacros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixmenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixmessagemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixmetaclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixmonthcalendarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixobject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixpagescrollerctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixprogressbarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixproperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixrebarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixrequired.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixresid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixresource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixscrollbarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixsharedptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixstate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixstatusbarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtabctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtextctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixthreading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtoolbarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtooltipctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtrace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtrackbarctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtreeviewctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixtypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixuithread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixupdownctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixview.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixwindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uixwindowclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="uixanimatectrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixapplication.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixbuttonctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixcolordialog.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixcombobox.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixdatetimectrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixframe.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixgdibitmap.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixgdibrush.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixgdidc.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixgdifont.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixgdipen.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixheaderctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixhotkeyctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uiximagelistctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixipaddressctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixlabel.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixlinkctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixlistboxctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixlistviewctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixmenu.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixmetaclass.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixmonthcalendarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixmsgbox.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixobject.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixpagescrollerctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixprogressbarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixrebarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixscrollbarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixstatusbarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtabctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtextctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtime.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtoolbarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtooltipctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtrackbarctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtreeviewctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixtypes.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixupdownctrl.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="uixwindow.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="Main.doxy">
+      <Filter>Documentation Files</Filter>
+    </None>
+    <None Include="Mechanics.doxy">
+      <Filter>Documentation Files</Filter>
+    </None>
+    <None Include="Tutorial1.doxy">
+      <Filter>Documentation Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

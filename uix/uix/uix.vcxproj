@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>uix10</ProjectName>
+    <ProjectGuid>{B94A09FD-9B8E-460B-8094-3BEDBDE7151B}</ProjectGuid>
+    <RootNamespace>uix</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\..\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\..\intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\..\bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\..\intermediate\$(ProjectName)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildStep>
+      <Command />
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UIX_EXPORTS;UIX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;UIX_EXPORTS;UIX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildStep>
+      <Command />
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;UIX_EXPORTS;UIX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>false</GenerateMapFile>
+      <MapFileName />
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;UIX_EXPORTS;UIX_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>false</GenerateMapFile>
+      <MapFileName>
+      </MapFileName>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="uixaboutdlg.cpp" />
+    <ClCompile Include="uixanimatectrl.cpp" />
+    <ClCompile Include="uixapplication.cpp" />
+    <ClCompile Include="uixbuttonctrl.cpp" />
+    <ClCompile Include="uixcolordialog.cpp" />
+    <ClCompile Include="uixcombobox.cpp" />
+    <ClCompile Include="uixdatetimectrl.cpp" />
+    <ClCompile Include="uixdiagnostic.cpp" />
+    <ClCompile Include="uixdialog.cpp" />
+    <ClCompile Include="uixdump.cpp" />
+    <ClCompile Include="uixexception.cpp" />
+    <ClCompile Include="uixexceptiondlg.cpp" />
+    <ClCompile Include="uixfiledialog.cpp" />
+    <ClCompile Include="uixfilestream.cpp" />
+    <ClCompile Include="uixframe.cpp" />
+    <ClCompile Include="uixgdidc.cpp" />
+    <ClCompile Include="uixheaderctrl.cpp" />
+    <ClCompile Include="uixhotkeyctrl.cpp" />
+    <ClCompile Include="uiximagelistctrl.cpp" />
+    <ClCompile Include="uixinit.cpp" />
+    <ClCompile Include="uixipaddressctrl.cpp" />
+    <ClCompile Include="uixlabel.cpp" />
+    <ClCompile Include="uixlinkctrl.cpp" />
+    <ClCompile Include="uixlistboxctrl.cpp" />
+    <ClCompile Include="uixlistviewctrl.cpp" />
+    <ClCompile Include="uixmonthcalendar.cpp" />
+    <ClCompile Include="uixobject.cpp" />
+    <ClCompile Include="uixpagescrollerctrl.cpp" />
+    <ClCompile Include="uixprogressbarctrl.cpp" />
+    <ClCompile Include="uixrebarctrl.cpp" />
+    <ClCompile Include="uixresource.cpp" />
+    <ClCompile Include="uixscrollbarctrl.cpp" />
+    <ClCompile Include="uixstate.cpp" />
+    <ClCompile Include="uixstatusbarctrl.cpp" />
+    <ClCompile Include="uixstream.cpp" />
+    <ClCompile Include="uixtabctrl.cpp" />
+    <ClCompile Include="uixtextctrl.cpp" />
+    <ClCompile Include="uixthreading.cpp" />
+    <ClCompile Include="uixtoolbarctrl.cpp" />
+    <ClCompile Include="uixtooltipctrl.cpp" />
+    <ClCompile Include="uixtrace.cpp" />
+    <ClCompile Include="uixtrackbarctrl.cpp" />
+    <ClCompile Include="uixtreeviewctrl.cpp" />
+    <ClCompile Include="uixuithread.cpp" />
+    <ClCompile Include="uixupdownctrl.cpp" />
+    <ClCompile Include="uixview.cpp" />
+    <ClCompile Include="uixwindow.cpp" />
+    <ClCompile Include="uixwindowclass.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="uixaboutdlg.h" />
+    <ClInclude Include="uixanimatectrl.h" />
+    <ClInclude Include="uixapplication.h" />
+    <ClInclude Include="uixbuttonctrl.h" />
+    <ClInclude Include="uixcolordialog.h" />
+    <ClInclude Include="uixcombobox.h" />
+    <ClInclude Include="uixconfig.h" />
+    <ClInclude Include="uixdatetimectrl.h" />
+    <ClInclude Include="uixdiagnostic.h" />
+    <ClInclude Include="uixdialog.h" />
+    <ClInclude Include="uixdump.h" />
+    <ClInclude Include="uixexception.h" />
+    <ClInclude Include="uixexceptiondlg.h" />
+    <ClInclude Include="uixfiledialog.h" />
+    <ClInclude Include="uixfilestream.h" />
+    <ClInclude Include="uixframe.h" />
+    <ClInclude Include="uixgdibitmap.h" />
+    <ClInclude Include="uixgdibrush.h" />
+    <ClInclude Include="uixgdidc.h" />
+    <ClInclude Include="uixgdifont.h" />
+    <ClInclude Include="uixgdipen.h" />
+    <ClInclude Include="uixheaderctrl.h" />
+    <ClInclude Include="uixhotkeyctrl.h" />
+    <ClInclude Include="uiximagelistctrl.h" />
+    <ClInclude Include="uixinit.h" />
+    <ClInclude Include="uixipaddressctrl.h" />
+    <ClInclude Include="uixlabel.h" />
+    <ClInclude Include="uixlinkctrl.h" />
+    <ClInclude Include="uixlistboxctrl.h" />
+    <ClInclude Include="uixlistviewctrl.h" />
+    <ClInclude Include="uixmacros.h" />
+    <ClInclude Include="uixmenu.h" />
+    <ClInclude Include="uixmessagemap.h" />
+    <ClInclude Include="uixmetaclass.h" />
+    <ClInclude Include="uixmonthcalendarctrl.h" />
+    <ClInclude Include="uixobject.h" />
+    <ClInclude Include="uixpagescrollerctrl.h" />
+    <ClInclude Include="uixprocess.h" />
+    <ClInclude Include="uixprogressbarctrl.h" />
+    <ClInclude Include="uixproperty.h" />
+    <ClInclude Include="uixrebarctrl.h" />
+    <ClInclude Include="uixrequired.h" />
+    <ClInclude Include="uixresid.h" />
+    <ClInclude Include="uixresource.h" />
+    <ClInclude Include="uixscrollbarctrl.h" />
+    <ClInclude Include="uixsharedptr.h" />
+    <ClInclude Include="uixstate.h" />
+    <ClInclude Include="uixstatusbarctrl.h" />
+    <ClInclude Include="uixstream.h" />
+    <ClInclude Include="uixtabctrl.h" />
+    <ClInclude Include="uixtextctrl.h" />
+    <ClInclude Include="uixthreading.h" />
+    <ClInclude Include="uixtime.h" />
+    <ClInclude Include="uixtimer.h" />
+    <ClInclude Include="uixtoolbarctrl.h" />
+    <ClInclude Include="uixtooltipctrl.h" />
+    <ClInclude Include="uixtrace.h" />
+    <ClInclude Include="uixtrackbarctrl.h" />
+    <ClInclude Include="uixtreeviewctrl.h" />
+    <ClInclude Include="uixtypes.h" />
+    <ClInclude Include="uixuithread.h" />
+    <ClInclude Include="uixupdownctrl.h" />
+    <ClInclude Include="uixview.h" />
+    <ClInclude Include="uixwindow.h" />
+    <ClInclude Include="uixwindowclass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="uixanimatectrl.inl" />
+    <None Include="uixapplication.inl" />
+    <None Include="uixbuttonctrl.inl" />
+    <None Include="uixcolordialog.inl" />
+    <None Include="uixcombobox.inl" />
+    <None Include="uixdatetimectrl.inl" />
+    <None Include="uixframe.inl" />
+    <None Include="uixgdibitmap.inl" />
+    <None Include="uixgdibrush.inl" />
+    <None Include="uixgdidc.inl" />
+    <None Include="uixgdifont.inl" />
+    <None Include="uixgdipen.inl" />
+    <None Include="uixheaderctrl.inl" />
+    <None Include="uixhotkeyctrl.inl" />
+    <None Include="uiximagelistctrl.inl" />
+    <None Include="uixipaddressctrl.inl" />
+    <None Include="uixlabel.inl" />
+    <None Include="uixlinkctrl.inl" />
+    <None Include="uixlistboxctrl.inl" />
+    <None Include="uixlistviewctrl.inl" />
+    <None Include="uixmenu.inl" />
+    <None Include="uixmetaclass.inl" />
+    <None Include="uixmonthcalendarctrl.inl" />
+    <None Include="uixmsgbox.inl" />
+    <None Include="uixobject.inl" />
+    <None Include="uixpagescrollerctrl.inl" />
+    <None Include="uixprogressbarctrl.inl" />
+    <None Include="uixrebarctrl.inl" />
+    <None Include="uixscrollbarctrl.inl" />
+    <None Include="uixstatusbarctrl.inl" />
+    <None Include="uixtabctrl.inl" />
+    <None Include="uixtextctrl.inl" />
+    <None Include="uixtime.inl" />
+    <None Include="uixtoolbarctrl.inl" />
+    <None Include="uixtooltipctrl.inl" />
+    <None Include="uixtrackbarctrl.inl" />
+    <None Include="uixtreeviewctrl.inl" />
+    <None Include="uixtypes.inl" />
+    <None Include="uixupdownctrl.inl" />
+    <None Include="uixwindow.inl" />
+    <None Include="Main.doxy" />
+    <None Include="Mechanics.doxy" />
+    <None Include="Tutorial1.doxy" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
